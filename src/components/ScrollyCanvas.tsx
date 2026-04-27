@@ -34,8 +34,8 @@ export default function ScrollyCanvas() {
   const opacity1 = useTransform(smoothProgress, [0, 0.05, 0.15, 0.2], [0, 1, 1, 0], { clamp: true });
   const y1 = useTransform(smoothProgress, [0, 0.05, 0.15, 0.2], [50, 0, 0, -100], { clamp: true });
 
-  const opacity2 = useTransform(smoothProgress, [0.2, 0.3, 0.4, 0.5], [0, 1, 1, 0], { clamp: true });
-  const y2 = useTransform(smoothProgress, [0.2, 0.5], [100, -100], { clamp: true });
+  const opacity2 = useTransform(smoothProgress, [0.15, 0.3, 0.45, 0.6], [0, 1, 1, 0], { clamp: true });
+  const y2 = useTransform(smoothProgress, [0.15, 0.3], [100, 0], { clamp: true });
 
   const opacity3 = useTransform(smoothProgress, [0.5, 0.6, 0.7, 0.8], [0, 1, 1, 0], { clamp: true });
   const y3 = useTransform(smoothProgress, [0.5, 0.8], [100, -100], { clamp: true });
@@ -152,12 +152,12 @@ export default function ScrollyCanvas() {
         {/* Text Overlays */}
         <div className="absolute inset-0 pointer-events-none flex flex-col justify-center items-center z-10">
           <motion.div style={{ opacity: opacity1, y: y1 }} className="absolute w-full h-full flex flex-col justify-center px-6 md:px-24">
-            <h1 className="text-6xl md:text-[8rem] font-display font-black tracking-tighter leading-[0.95] mb-8 uppercase">
+            <h1 className="text-4xl sm:text-6xl md:text-[8rem] font-display font-black tracking-tighter leading-[0.95] mb-8 uppercase">
               <span className="text-transparent" style={{ WebkitTextStroke: '2px #71717a' }}>KOYYANA</span>
               <br className="hidden md:block"/>
               <span className="text-zinc-100">TARUN KUMAR</span><span className="text-emerald-500">.</span>
             </h1>
-            <p className="text-xl md:text-3xl font-light text-zinc-400 tracking-wide mb-12">
+            <p className="text-lg sm:text-xl md:text-3xl font-light text-zinc-400 tracking-wide mb-12">
               AI/ML Engineer <span className="text-emerald-500 mx-2 font-medium">&amp;</span> Full-Stack Developer
             </p>
             
@@ -171,8 +171,8 @@ export default function ScrollyCanvas() {
                   const targetPos = target.getBoundingClientRect().top + window.scrollY;
                   document.documentElement.style.scrollBehavior = 'auto';
                   animate(window.scrollY, targetPos, {
-                    duration: 2,
-                    ease: [0.76, 0, 0.24, 1],
+                    duration: 3.5,
+                    ease: "easeInOut",
                     onUpdate: (v) => window.scrollTo({ top: v }),
                     onComplete: () => { document.documentElement.style.scrollBehavior = ''; }
                   });
@@ -191,8 +191,8 @@ export default function ScrollyCanvas() {
                   const targetPos = target.getBoundingClientRect().top + window.scrollY;
                   document.documentElement.style.scrollBehavior = 'auto';
                   animate(window.scrollY, targetPos, {
-                    duration: 2.2,
-                    ease: [0.76, 0, 0.24, 1],
+                    duration: 4.5,
+                    ease: "easeInOut",
                     onUpdate: (v) => window.scrollTo({ top: v }),
                     onComplete: () => { document.documentElement.style.scrollBehavior = ''; }
                   });
@@ -232,14 +232,6 @@ export default function ScrollyCanvas() {
                   <h3 className="text-4xl md:text-6xl font-display font-medium text-zinc-100 mb-2">96%</h3>
                   <p className="text-sm md:text-base text-zinc-500 font-mono uppercase tracking-widest">Accuracy</p>
                 </div>
-              </div>
-              <div className="mt-12 flex gap-6 pointer-events-auto">
-                <a href="#projects" className="px-8 py-4 bg-zinc-100 text-zinc-950 font-display font-medium rounded-full hover:bg-white hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all">
-                  View Projects
-                </a>
-                <a href="#contact" className="px-8 py-4 border border-zinc-700 text-zinc-300 font-display font-medium rounded-full hover:bg-zinc-800 hover:text-zinc-100 transition-colors">
-                  Get in touch
-                </a>
               </div>
             </div>
           </motion.div>
